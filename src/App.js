@@ -1,19 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Navbar , FormGroup, FormControl} from 'react-bootstrap';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
+import CustomNavbar from './modules/components/CustomNavBar';
+import Dashboard from './modules/views/Dashboard';
+import Events from './modules/views/Events';
+import Login from "./modules/views/Login";
+
+
+
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <Router>
+      <div>
+          <CustomNavbar />
+          <Route exact path="/" component={Dashboard} />
+          <Route path="/events" component={Events} />
+          <Route path="/login" component={Login} />
+
+
+        
       </div>
+      </Router>
     );
   }
 }

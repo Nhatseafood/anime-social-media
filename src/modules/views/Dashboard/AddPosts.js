@@ -5,15 +5,15 @@ import PropTypes from 'prop-types'
 
 class AddPosts extends Component {
 
-    constructor(){
-        super();
-        this.state = {
-            newPost:{
-                id: "",
-                caption: ""
-            }
-        }
-    }
+    // constructor(){
+    //     super();
+    //     this.state = {
+    //         newPost:{
+    //             id: "",
+    //             caption: ""
+    //         }
+    //     }
+    // }
     
 
     handleSubmit(e){
@@ -27,14 +27,18 @@ class AddPosts extends Component {
         if(this.refs.caption.value === ''){
             alert('comment is required')
         }else{
-            this.setState({newPost:{
-                id: uuid.v4(),
-                caption: this.refs.caption.value,
-                
-            }},  function(){
-                
-                this.props.addPosts(this.state.newPost);
-            })
+            console.log("<<<<caption value detected")
+            // this.setState(
+            //     {
+            //         newPost:{
+            //             id: uuid.v4(),
+            //             caption: this.refs.caption.value,
+            //         }
+            //     }
+            //     ,  function(){
+            //     console.log(this.props.newPost , " << newPost from state ")
+            //     // this.props.addPosts(this.state.newPost);
+            // })
         }
 
     }
@@ -64,9 +68,9 @@ class AddPosts extends Component {
   }
 }
 
-// AddPosts.propTypes = {
+AddPosts.propTypes = {
    
-//     addPost: PropTypes.func
-// }
+    addPost: PropTypes.func
+}
 
 export default AddPosts;

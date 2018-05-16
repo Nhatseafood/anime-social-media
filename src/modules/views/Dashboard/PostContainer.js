@@ -1,6 +1,11 @@
 import React, {Component} from 'react';
 import AddPosts from './AddPosts';
 
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
+import {fetchPosts} from '../../actions/postActions';
+
 
 class PostContainer extends Component {
 
@@ -48,6 +53,17 @@ class PostContainer extends Component {
         );    
     }
 }
-        
 
-export default PostContainer;
+PostContainer.propTypes={ 
+    fetchPosts: PropTypes.func.isRequired,
+    posts: PropTypes.array.isRequired
+  }
+  const mapStateToProps = state => (
+    {
+      posts: state.posts.items 
+    }
+  );
+  
+export default connect(mapStateToProps, {fetchPosts})(PostContainer);
+  
+

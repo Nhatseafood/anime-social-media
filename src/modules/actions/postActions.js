@@ -1,24 +1,25 @@
-import { POST_DATA } from './types';
-import API_KEY from '../my_secret_api_key.json';
+import { FETCH_POSTS } from './types';
+// import API_KEY from '../my_secret_api_key.json';
 
-export const postData = () => dispatch => {
-  fetch("https://api-endpoint.igdb.com/games/?fields=name,cover,category,genres,rating,summary,platforms,publishers,popularity&order=popularity:desc", {
-    method: "GET",
-    headers: {
-    "user-key": API_KEY.key,
-    "Accept": "application/json"
-  }
-})
-  .then(response => response.json())
-  .then(games => dispatch({
-      type: FETCH_GAMES,
-      payload: games
-    })
-  )
+export const fetchPosts = () => dispatch => { console.log("<<<Post data action fire")
+//   fetch("https://api.predicthq.com", {
+//     method: "POST",
+//     headers: {
+//     "user-key": API_KEY.key,
+//     "Accept": "application/json"
+//   }
 }
+// )
+//   .then(response => response.json())
+//   .then(posts => dispatch({
+//       type: POST_DATA,
+//       payload: posts
+//     })
+//   )
+// }
 
-// export const searchGames = (searchEntry) => dispatch => {
-//   fetch("https://api-endpoint.igdb.com/games/?search=" + searchEntry + "&fields=*", {
+// export const searchposts = (searchEntry) => dispatch => {
+//   fetch("https://api-endpoint.igdb.com/posts/?search=" + searchEntry + "&fields=*", {
 //     method: "GET",
 //     headers: {
 //     "user-key": API_KEY.key,
@@ -27,7 +28,7 @@ export const postData = () => dispatch => {
 // })
 //   .then(response => response.json())
 //   .then(searchResults => dispatch({
-//       type: SEARCH_GAMES,
+//       type: SEARCH_POSTS,
 //       payload: searchResults
 //     })
 //   )

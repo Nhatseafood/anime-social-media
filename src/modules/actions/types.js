@@ -1,1 +1,1 @@
-export const POST_DATA = "POST_DATA"; 
+export const FETCH_POSTS = "FETCH_POSTS"; 

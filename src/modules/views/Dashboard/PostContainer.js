@@ -6,49 +6,39 @@ import PropTypes from 'prop-types';
 
 import {fetchPosts} from '../../actions/postActions';
 
+import "./PostContainer.css"
+
+import NewPost from "../../helpers/postHelper";
 
 class PostContainer extends Component {
 
-    constructor(){
-        super();
-        this.state = {
-          posts: [
-            {
-                id:1,
-                caption: 'Cool Costume!'
-            },
-            {
-               id:2,
-               caption: 'I love Anime!'
-            },
-            { 
-               id:3,
-               caption: 'ComicPalooza Time'
-            }
-            ]
-        }
-    }
-   
-    handleAddPost(post){
-        console.log("what is being sent to us")
-        console.log(post)
-        
-        let posts  = this.state.posts;
-        posts.push(post);
-        this.setState({posts:posts})
-    } 
+    // constructor(){
+    //     super();
+    //     this.state = {
+          
+    //     }
+    // }
+   componentWillMount() {
+       this.props.fetchPosts();
+   }
+
+   componentWillReceiveProps(nextProps) {
+       if(nextProps.newPost) {
+           this.props.unshift(nextProps.newPost);
+       }
+   }
 
     render () { 
         console.log(this.state)
-        const postItems = this.state.posts.map(post => (
+        console.log(this.props, " << props")
+        const postItems = this.props.posts.map(post => (
             <div key={post.id}>
               <h3> {post.caption}</h3>
-              <p>{this.props.userEntry} </p>
               </div>
           ));
 
         return (
-            <div>
+            <div className="comments">
                 <br/>
                 <h2>Previous Comments</h2>
                 {postItems}

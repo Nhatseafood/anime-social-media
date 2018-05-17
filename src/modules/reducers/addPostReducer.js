@@ -1,4 +1,4 @@
-import { FETCH_POSTS } from '../actions/types';
+import { FETCH_POSTS, SUBMIT_ENTRY } from '../actions/types';
 
 const intialState = { 
     items: [],
@@ -13,7 +13,7 @@ export default function(state = intialState, action) {
                 ...state,
                 items: action.payload
             }
-        case "SUBMIT_ENTRY":
+        case SUBMIT_ENTRY:
         return{
             ...state,
             userEntry: action.userEntry

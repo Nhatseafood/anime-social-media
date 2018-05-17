@@ -23,6 +23,9 @@ class Dashboard extends Component {
             <div className="container">
                  <Avatar size={200} name="Will Binns-Smith" src="https://pbs.twimg.com/profile_images/429442426038538240/6Ac9kykG_400x400.jpeg"  />
                  <h2>Nhat Nguyen</h2>
+                 <div className="friends"> 
+                     <h2><u>Friends</u></h2>
+                          </div>
                         <div>
                         <AddPosts />
                         <PostContainer />

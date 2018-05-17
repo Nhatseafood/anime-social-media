@@ -39,14 +39,18 @@ class PostContainer extends Component {
     } 
 
     render () { 
+        console.log(this.state)
         const postItems = this.state.posts.map(post => (
             <div key={post.id}>
               <h3> {post.caption}</h3>
+              <p>{this.props.userEntry} </p>
               </div>
           ));
 
         return (
             <div>
+                <br/>
+                <h2>Previous Comments</h2>
                 {postItems}
                 
             </div>
@@ -60,7 +64,8 @@ PostContainer.propTypes={
   }
   const mapStateToProps = state => (
     {
-      posts: state.posts.items 
+      posts: state.posts.items,
+      userEntry : state.posts.userEntry 
     }
   );
   

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import uuid from 'uuid'
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 
 class AddPosts extends Component {
@@ -45,32 +46,44 @@ class AddPosts extends Component {
 
   render() {
 
-    // // let  categoryOptions = this.props.categories.map(category =>{
+    // let  captionOptions = this.props.caption.map(caption =>{
             
-    // //     return <option key={category} value={category}>{category}</option>
+    //     return <option key={caption} value={caption}>{caption}</option>
 
     // })
     return (
     <div>
         <h1>Add Posts</h1>
 
-        <form onSubmit={this.handleSubmit.bind(this)}>
+        <div>
            <div>
                <label>Caption</label><br />
                <input type="text" ref="caption"/>
           </div>
-
-          
-          <input type="submit" value="post"/>
-        </form>
+          <button onClick = { () =>
+          this.props.onSubmitEntry(this.refs.caption.value)}> Submit
+        </button>
+        </div>
      </div>
     );
   }
 }
 
-AddPosts.propTypes = {
-   
-    addPost: PropTypes.func
+const mapStateToProps = state => {
+    return{
+        ...state
+    }
 }
 
-export default AddPosts;
+const mapDispatchToProps = dispatch => {
+    return{
+        onSubmitEntry : (entry) => dispatch({type: "SUBMIT_ENTRY",
+        userEntry : entry})
+    }
+}
+
+AddPosts.propTypes = {
+   addPost: PropTypes.func
+}
+
+export default connect(mapStateToProps,mapDispatchToProps) (AddPosts);

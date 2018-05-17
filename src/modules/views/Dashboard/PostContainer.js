@@ -15,15 +15,15 @@ class PostContainer extends Component {
           posts: [
             {
                 id:1,
-                caption: 'Coding Boot Camp'
+                caption: 'Cool Costume!'
             },
             {
                id:2,
-               caption: 'Houston Pubblic University'
+               caption: 'I love Anime!'
             },
             { 
                id:3,
-               caption: 'Texas Public University'
+               caption: 'ComicPalooza Time'
             }
             ]
         }

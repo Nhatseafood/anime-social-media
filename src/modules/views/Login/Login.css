@@ -7,6 +7,14 @@
   
     .Login form {
       margin: 0 auto;
-      max-width: 320px;
+      max-width: 400px;
+      background:#009edf;
+      padding: 10px 40px;
+      color: #FFF;
+      text-shadow: none;
+   -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+ -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
+ box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
     }
   }
+

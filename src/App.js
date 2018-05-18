@@ -6,6 +6,7 @@ import CustomNavbar from './modules/components/CustomNavBar';
 import Dashboard from './modules/views/Dashboard/Dashboard';
 import Events from './modules/views/Events/Events';
 import Login from "./modules/views/Login/Login";
+import SignUp from "./modules/views/Login/SignUp";
 
 class App extends Component {
 
@@ -17,6 +18,7 @@ class App extends Component {
           <Route exact path="/" component={Dashboard} />
           <Route path="/events" component={Events} />
           <Route path="/login" component={Login} />
+          <Route path="/signUp" component={SignUp} />
           <div>
           </div>
       </div>

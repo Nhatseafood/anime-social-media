@@ -56,6 +56,15 @@ export default class Login extends Component {
           >
             Login
           </Button>
+          <Button onClick="window.location.href='/"
+            block
+            bsSize="large"
+            href="/signUp"
+            to="/signUp"
+            type="submit"
+          >
+            Sign up
+          </Button>
         </form>
       </div>
     );

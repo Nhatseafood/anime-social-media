@@ -24,7 +24,6 @@ class AddPosts extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
     
-
     onSubmit(e){
         e.preventDefault();
         var newCaptionValue = this.refs.caption.value;
@@ -37,7 +36,7 @@ class AddPosts extends Component {
             console.log("<<<<caption value detected")
             var post = new Post(newCaptionValue)
             console.log(post, " << new Post")
-            this.props.addPost(post);    
+            //this.props.addPost(post);    
         }
     }
 
@@ -66,8 +65,26 @@ class AddPosts extends Component {
 //     }
 // }
 
-AddPosts.propTypes = {
-   addPost: PropTypes.func
+// AddPosts.propTypes = {
+//    addPost: PropTypes.func
+// }
+
+function mapStateToProps(state, props){
+    return {
+        posts: state.posts.items,
+        userEntry : state.posts.userEntry 
+    }
 }
 
-export default connect(null,{ addPost }) ( AddPosts );
+function mapDispatchToProps(dispatch){
+    return{
+        addPost: (posts) => dispatch(
+            {
+            type: "FETCH_POSTS",
+            payload: posts
+          })
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps) ( AddPosts );
+
+

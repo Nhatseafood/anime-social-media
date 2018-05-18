@@ -4,17 +4,19 @@ import { FETCH_POSTS, SUBMIT_ENTRY } from './types';
 var postsArray = [
     {
         id:1,
-        caption: 'Cool Costume!'
+        caption: 'Cool Nhat!'
     },
     {
        id:2,
-       caption: 'I love Anime!'
+       caption: 'I love Nhat!'
     },
     { 
        id:3,
-       caption: 'ComicPalooza Time'
+       caption: 'ComicPalooza Nhat'
     }
 ]
+
+
 
 export const fetchPosts = () => dispatch => { 
     console.log("<<<Post data action fire")
